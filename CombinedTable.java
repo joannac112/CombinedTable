@@ -5,7 +5,12 @@ public class CombinedTable{
         one = o;
         two = t;
     }
-    public canSeat(int num){
-        return one.getNumSeats(one) + two.getNumSeats(two) - 2 >= num;
+    public boolean canSeat(int num){
+        return one.getNumSeats() + two.getNumSeats() - 2 >= num;
+    }
+    public double getDesirability(){
+        double average = (one.getViewQuality() + two.getViewQuality())/2;
+        if (one.getHeight() == two.getHeight()) return average;
+        return average - 10;
     }
 }
